@@ -15,7 +15,7 @@
     </header>
     <main>
       <section class="left">
-        <div class="img">
+        <div id='avatar' class="img">
           <img id="imgBack" src="./assets/backgrounds/blue60.png" alt="backgrounds" />
           <img id="imgEars" src="./assets/ears/tilt-backward.png" alt="" srcset="" />
           <img id="imgNeck" src="./assets/neck/bend-backward.png" alt="" srcset="" />
@@ -26,9 +26,13 @@
           <img id="imgLeg" src="./assets/leg/game-console.png" alt="" srcset="" />
           <img id="imgAcces" src="./assets/accessories/flower.png" alt="" srcset="" />
         </div>
-        <button class="btn-random">Random</button>
+        <canvas id="canvas"></canvas>
+        <div>
+          <button class="btn-random">Random</button>
+          <button id="btn-download" class="btn-download">Download</button>
+        </div>
       </section>
-      <section>
+      <section class="styles">
         <div class="container">
           <h2>Monte sua Alpaca</h2>
           <div class="button">
@@ -50,7 +54,7 @@
       </section>
     </main>
 
-    <script src="./script/index.js"></script>
     
+    <script src="./script/index.js"></script>
   </body>
 </html>
