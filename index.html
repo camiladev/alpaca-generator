@@ -1,59 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alpaca Generator</title>
 
-    <link rel="stylesheet" type="text/css" href="./styles/style.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>Alpaca Generator</h1>
+      <h1>Alpaca Generator</h1>
     </header>
     <main>
-        <section class="left">
-            <div class="img">
-                <img src="./assets/backgrounds/blue60.png" alt="backgrounds">
-                <img src="./assets/neck/bend-backward.png" alt="" srcset="">
-                <img src="./assets/nose/default.png" alt="" srcset="">
-                <img src="./assets/hair/bang.png" alt="" srcset="">
-                <img src="./assets/ears/tilt-backward.png" alt="" srcset="">
-                <img src="./assets/eyes/panda.png" alt="" srcset="">
-                <img src="./assets/mouth/eating.png" alt="" srcset="">
-                <img src="./assets/leg/game-console.png" alt="" srcset="">
-                <img src="./assets/accessories/flower.png" alt="" srcset="">
-            </div>
-            <button class="btn-random">Random</button>
-        </section>
-        <section>
-            <div class="container">
-                <h2>Monte sua Alpaca</h2>
-                <div class="button">
-                    <button class="btn" type="button">Acessórios</button>
-                    <button class="btn" type="button">Plano de fundo</button>
-                    <button class="btn" type="button">Orelhas</button>
-                    <button class="btn" type="button">Olhos</button>
-                    <button class="btn" type="button">Cabelo</button>
-                    <button class="btn" type="button">Perna</button>
-                    <button class="btn" type="button">Boca</button>
-                    <button class="btn" type="button">Pescoço</button>
-                    <button class="btn" type="button">Nariz</button>
-                </div>
-            </div>
-            <div>
-                <h3>Estilos</h3>
-                <div class="button">
-                    <button class="btn" type="button">Modelo 1</button>
-                    <button class="btn" type="button">Modelo 2</button>
-                    <button class="btn" type="button">Modelo 3</button>
-                    <button class="btn" type="button">Modelo 4</button>
-                </div>
-            </div>
-        </section>
+      <section class="left">
+        <div class="img">
+          <img id="imgBack" src="./assets/backgrounds/blue60.png" alt="backgrounds" />
+          <img id="imgNeck" src="./assets/neck/bend-backward.png" alt="" srcset="" />
+          <img id="imgNose" src="./assets/nose/default.png" alt="" srcset="" />
+          <img id="imgHair" src="./assets/hair/bang.png" alt="" srcset="" />
+          <img id="imgEars" src="./assets/ears/tilt-backward.png" alt="" srcset="" />
+          <img id="imgEyes" src="./assets/eyes/panda.png" alt="" srcset="" />
+          <img id="imgMouth" src="./assets/mouth/eating.png" alt="" srcset="" />
+          <img id="imgLeg" src="./assets/leg/game-console.png" alt="" srcset="" />
+          <img id="imgAcces" src="./assets/accessories/flower.png" alt="" srcset="" />
+        </div>
+        <button class="btn-random">Random</button>
+      </section>
+      <section>
+        <div class="container">
+          <h2>Monte sua Alpaca</h2>
+          <div class="button">
+            <button id="id-backgrounds" class="btn" type="button" name="backgrounds">Plano de fundo</button>
+            <button id="id-ears" class="btn" type="button" name="ears">Orelhas</button>
+            <button id="id-eyes" class="btn" type="button" name="eyes">Olhos</button>
+            <button id="id-hair" class="btn" type="button" name="hair">Cabelo</button>
+            <button id="id-leg" class="btn" type="button" name="leg">Perna</button>
+            <button id="id-mouth" class="btn" type="button" name="mouth">Boca</button>
+            <button id="id-neck" class="btn" type="button" name="neck">Pescoço</button>
+            <button id="id-nose" class="btn" type="button" name="nose">Nariz</button>
+            <button id="id-accessories" class="btn" type="button" name="accessories">Acessórios</button>
+          </div>
+        </div>
+        <div>
+          <h3>Estilos</h3>
+          <div id="contentBtn" class="button"></div>
+        </div>
+      </section>
     </main>
-</body>
 
+    <script>
+        function exibirMsg(event){
+            alert('Opa, eai?')
+            console.log(event.target.name);
+
+        }
+
+        const backgrounds = [
+          {
+            name: 'blue50',
+            url: './assets/backgrounds/blue50.png'
+          },
+          {
+            name: 'blue60',
+            url: './assets/backgrounds/blue60.png'
+          },
+          {
+            name: 'blue70',
+            url: './assets/backgrounds/blue70.png'
+          },
+        ]
+
+        const earsItem = [
+          {
+            name: 'default',
+            url: './assets/ears/default.png'
+          },
+          {
+            name: 'tilt-backward',
+            url: './assets/ears/tilt-backward.png'
+          },
+          {
+            name: 'tilt-forward',
+            url: './assets/ears/tilt-forward.png'
+          },
+        ]
+
+        function styleBtn(name, src){
+          switch (name) {
+            case "backgrounds":
+              document.getElementById('imgBack').src = src
+              break;
+            case "ears":
+              document.getElementById('imgEars').src = src
+              break;
+            default:
+              break;
+          }
+          
+        }
+
+        function geraBtn(origin, items){
+          const content = document.getElementById('contentBtn')
+          
+          while (content.firstChild) {
+            content.removeChild(content.firstChild)
+          }
+
+          items.forEach(item => {
+
+            const btn = document.createElement('button')
+            btn.classList.add('btn')
+            btn.setAttribute('name', `${item.name}`)
+            btn.setAttribute('id', `id-${item.name}`)
+            btn.innerText = `${item.name}`
+            content.appendChild(btn)
+
+            btn.addEventListener('click', () => styleBtn(origin, item.url))
+          })
+        }
+
+        function exibiBtn(event){  
+          switch (event.target.name) {
+            case 'backgrounds':
+              geraBtn('backgrounds',backgrounds) 
+              break;
+            case 'ears':
+              geraBtn('ears',earsItem) 
+              break;
+            default:
+              break;
+          }          
+                       
+        }
+      
+        
+        var back = document.getElementById(`id-backgrounds`)
+        back.addEventListener('click', exibiBtn);
+
+        var ears = document.getElementById(`id-ears`)
+        ears.addEventListener('click', exibiBtn);
+
+        var eyes = document.getElementById(`id-eyes`)
+        eyes.addEventListener('click', exibirMsg);
+
+        var hair = document.getElementById(`id-hair`)
+        hair.addEventListener('click', exibirMsg);
+
+        var leg = document.getElementById(`id-leg`)
+        leg.addEventListener('click', exibirMsg);
+
+        var mouth = document.getElementById(`id-mouth`)
+        mouth.addEventListener('click', exibirMsg);
+
+        var neck = document.getElementById(`id-neck`)
+        neck.addEventListener('click', exibirMsg);
+
+        var nose = document.getElementById(`id-nose`)
+        nose.addEventListener('click', exibirMsg);
+
+        var accessories = document.getElementById(`id-accessories`)
+        accessories.addEventListener('click', exibirMsg);
+        
+    </script>
+  </body>
 </html>
