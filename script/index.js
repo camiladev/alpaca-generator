@@ -96,64 +96,56 @@ import("./constants.js").then((module) => {
     }
   }
 
-  function salvaAvatar(event) {
-    const avatar = document.getElementById("avatar");
-    console.log(avatar);
-
-    let imgBack = new Image();
-    imgBack.src = document.getElementById("imgBack").src;
-
-    let imgEars = new Image();
-    imgEars.src = document.getElementById("imgEars").src;
-
-    let imgNeck = new Image();
-    imgNeck.src = document.getElementById("imgNeck").src;
-
-    let imgNose = new Image();
-    imgNose.src = document.getElementById("imgNose").src;
-
-    let imgHair = new Image();
-    imgHair.src = document.getElementById("imgHair").src;
-
-    let imgEyes = new Image();
-    imgEyes.src = document.getElementById("imgEyes").src;
-
-    let imgMouth = new Image();
-    imgMouth.src = document.getElementById("imgMouth").src;
-
-    let imgLeg = new Image();
-    imgLeg.src = document.getElementById("imgLeg").src;
-
-    let imgAcces = new Image();
-    imgAcces.src = document.getElementById("imgAcces").src;
+  function draw() {
+    // let imgBack = new Image();
+    const imgBack = document.getElementById("imgBack");
+    // let imgEars = new Image();
+    const imgEars = document.getElementById("imgEars");
+    // let imgNeck = new Image();
+    const imgNeck = document.getElementById("imgNeck");
+    // let imgNose = new Image();
+    const imgNose = document.getElementById("imgNose");
+    // let imgHair = new Image();
+    const imgHair = document.getElementById("imgHair");
+    // let imgEyes = new Image();
+    const imgEyes = document.getElementById("imgEyes");
+    // let imgMouth = new Image();
+    const imgMouth = document.getElementById("imgMouth");
+    // let imgLeg = new Image();
+    const imgLeg = document.getElementById("imgLeg");
+    // let imgAcces = new Image();
+    const imgAcces = document.getElementById("imgAcces");
 
     const canvas = document.getElementById("canvas");
+    canvas.setAttribute('width', 500);
+    canvas.setAttribute('height', 500);
     const ctx = canvas.getContext("2d");
 
-    ctx.save();
-    ctx.drawImage(imgBack, 0, 0, 300, 300);
-    ctx.drawImage(imgEars, 0, 0, 300, 300);
-    ctx.drawImage(imgNeck, 0, 0, 300, 300);
-    ctx.drawImage(imgNose, 0, 0, 300, 300);
-    ctx.drawImage(imgHair, 0, 0, 300, 300);
-    ctx.drawImage(imgEyes, 0, 0, 300, 300);
-    ctx.drawImage(imgMouth, 0, 0, 300, 300);
-    ctx.drawImage(imgLeg, 0, 0, 300, 300);
-    ctx.drawImage(imgAcces, 0, 0, 300, 300);
-    ctx.restore();
+    ctx.beginPath();
+    ctx.drawImage(imgBack, 0, 0, 500, 500);
+    ctx.drawImage(imgEars, 0, 0, 500, 500);
+    ctx.drawImage(imgNeck, 0, 0, 500, 500);
+    ctx.drawImage(imgNose, 0, 0, 500, 500);
+    ctx.drawImage(imgHair, 0, 0, 500, 500);
+    ctx.drawImage(imgEyes, 0, 0, 500, 500);
+    ctx.drawImage(imgMouth, 0, 0, 500, 500);
+    ctx.drawImage(imgLeg, 0, 0, 500, 500);
+    ctx.drawImage(imgAcces, 0, 0, 500, 500);
+    ctx.closePath();
+  }
 
-    const reader = new FileReader();
-    reader.onload = () => {
-       const image = canvas.toDataURL("image/png")
-       console.log(image);
-       canvas.toBlod(blob => {
-            saveAs(blob, "image.png")
-       })
-    }
-    // console.log(image);
-    // reader.readAsDataURL(ctx.src)
+  function salvaAvatar() {
+    draw();
 
+    const canvas = document.getElementById("canvas");
+    const imgURL = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
     
+    const a = document.createElement('a');
+    a.href = imgURL;
+    a.download = 'avatar.png';
+    document.body.appendChild(a);
+    a.click();
+
   }
 
   const salvar = document.getElementById(`btn-download`);
