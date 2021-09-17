@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alpaca Generator</title>
 
+    <link rel="stylesheet" type="text/css" href="./styles/reset.css" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
   </head>
 
@@ -14,20 +15,20 @@
       <h1>Alpaca Generator</h1>
     </header>
     <main>
-      <section class="left">
-        <div id='avatar' class="img">
-          <canvas id="canvas" class="canvas"></canvas>
-          <img id="imgBack" src="./assets/backgrounds/blue60.png" alt="backgrounds" />
-          <img id="imgEars" src="./assets/ears/tilt-backward.png" alt="" />
-          <img id="imgNeck" src="./assets/neck/bend-backward.png" alt="" />
-          <img id="imgNose" src="./assets/nose/default.png" alt="" />
-          <img id="imgHair" src="./assets/hair/bang.png" alt="" />
-          <img id="imgEyes" src="./assets/eyes/panda.png" alt="" />
-          <img id="imgMouth" src="./assets/mouth/eating.png" alt="" />
-          <img id="imgLeg" src="./assets/leg/game-console.png" alt="" />
-          <img id="imgAcces" src="./assets/accessories/flower.png" alt="" />
-          <img id="imgNuvem" src="" alt="">
-          <canvas id="msg" class="msg"></canvas>
+      <section class="avatar-group">
+        <div id='avatar' class="avatar-container">
+          <!-- <canvas id="canvas" class="canvas"></canvas> -->
+          <img id="img-Back" src="./assets/backgrounds/blue60.png" alt="Backgrounds" />
+          <img id="img-Ears" src="./assets/ears/tilt-backward.png" alt="Ears" />
+          <img id="img-Neck" src="./assets/neck/bend-backward.png" alt="Neck" />
+          <img id="img-Nose" src="./assets/nose/default.png" alt="Nose" />
+          <img id="img-Hair" src="./assets/hair/bang.png" alt="Hair" />
+          <img id="img-Eyes" src="./assets/eyes/panda.png" alt="Eyes" />
+          <img id="img-Mouth" src="./assets/mouth/eating.png" alt="Mouth" />
+          <img id="img-Leg" src="./assets/leg/game-console.png" alt="Leg" />
+          <img id="img-Acces" src="./assets/accessories/flower.png" alt="" />
+          <!-- <img id="img-Nuvem" src="">
+          <canvas id="msg" class="msg"></canvas> -->
         </div>        
         
         <div>
@@ -35,29 +36,29 @@
           <button id="btn-download" class="btn-download">Download</button>
         </div>
       </section>
-      <section class="styles">
-        <div class="container">
+      <section class="buttons_container">
+        <div>
           <h2>Monte sua Alpaca</h2>
-          <div class="button">
-            <button id="id-backgrounds" class="btn" type="button" name="backgrounds">Plano de fundo</button>
-            <button id="id-ears" class="btn" type="button" name="ears">Orelhas</button>
-            <button id="id-eyes" class="btn" type="button" name="eyes">Olhos</button>
-            <button id="id-hair" class="btn" type="button" name="hair">Cabelo</button>
-            <button id="id-leg" class="btn" type="button" name="leg">Perna</button>
-            <button id="id-mouth" class="btn" type="button" name="mouth">Boca</button>
-            <button id="id-neck" class="btn" type="button" name="neck">Pescoço</button>
-            <button id="id-nose" class="btn" type="button" name="nose">Nariz</button>
-            <button id="id-accessories" class="btn" type="button" name="accessories">Acessórios</button>
+          <div>
+            <button id="id-backgrounds" type="button" name="backgrounds">Plano de fundo</button>
+            <button id="id-ears" type="button" name="ears">Orelhas</button>
+            <button id="id-eyes" type="button" name="eyes">Olhos</button>
+            <button id="id-hair" type="button" name="hair">Cabelo</button>
+            <button id="id-leg" type="button" name="leg">Perna</button>
+            <button id="id-mouth" type="button" name="mouth">Boca</button>
+            <button id="id-neck" type="button" name="neck">Pescoço</button>
+            <button id="id-nose" type="button" name="nose">Nariz</button>
+            <button id="id-accessories" type="button" name="accessories">Acessórios</button>
           </div>
         </div>
         <div>
           <h3>Estilos</h3>
-          <div id="contentBtn" class="button"></div>
+          <div id="sub-buttons-container"></div>
         </div>
       </section>
     </main>
 
     
-    <script type="module" src="./script/index.js"></script>
+    <script type="module" src="./script/index.js" ></script>
   </body>
 </html>

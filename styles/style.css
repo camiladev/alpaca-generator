@@ -1,23 +1,19 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Tags gerais */
 body{
     background-color: #dfe4ea;
+    font-family: 'Courier New', Courier, monospace;
     width: 100%;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    height: 100vh;
 }
 
 header{
+    text-align: center;
+    margin: 50px 0;
+}
+
+main{
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
 }
 
 section{
@@ -25,10 +21,6 @@ section{
     height: 400px;
 }
 
-main{
-    display: flex;
-    justify-content: space-around;
-}
 
 button{
     padding: 10px;
@@ -39,20 +31,7 @@ button{
 }
 
 button:hover{
-    padding: 12px;
-}
-
-.left{
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.img{
-    width: 300px;
-    position: relative;
+    box-shadow: 1px 2px 2px 0px rgb(0 0 0 / 60%);
 }
 
 img{
@@ -60,26 +39,41 @@ img{
     position: absolute;
 }
 
-#imgNuvem{
+
+/* Area do avatar */
+.avatar-group{
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avatar-container{
+    width: 300px;
+    position: relative;
+}
+
+#img-Nuvem{
     width: 98px;
     position: absolute;
     top: 2px;
     right: 3px;
 }
 
-.msg{
-    letter-spacing: 1.5px;
-    font-size: 14px;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.msg,
-.canvas{
+.msg-funny,
+.download-avatar{
     width: 300px;
     height: 300px;
     position: absolute;
 }
 
+.msg-funny{
+    letter-spacing: 1.5px;
+    font-size: 14px;    
+}
+
+.btn-download,
 .btn-random{
     width: 100px;
 }
@@ -87,33 +81,38 @@ img{
 .btn-download:active,
 .btn-random:active{
     background-color: blueviolet;
-    padding: 12px;
+    box-shadow: 1px 2px 2px 0px rgb(0 0 0 / 60%);
     color: white;
 }
 
-.styles{
+/* Area de edição do avatar */
+.buttons_container{
     width: 430px;
-}
-
-.container{
-    width: 100%;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
 
-.container h2{
+.buttons_container div:first-child{
+    padding-bottom: 30px;
+}
+
+.buttons_container h2,
+.buttons_container h3{
     margin-bottom: 20px;
 }
-.btn:focus{
+
+.buttons_container button:focus{
     background-color: blueviolet;
-    padding: 15px;
+    color: white;
+    box-shadow: 1px 2px 2px 0px rgb(0 0 0 / 60%);
+}
+
+.details{
+    background-color: blueviolet;
+    box-shadow: 1px 2px 2px 0px rgb(0 0 0 / 60%);
     color: white;
 }
 
-.button{
-    width: 100%;
-    margin-bottom: 5px;
-}
 
 
 
