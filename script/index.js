@@ -1,5 +1,6 @@
-import("./constants.js").then((module) => {
-  const constants = module.default;
+import constants from './constants.js'
+// import("./constants.js").then((module) => {
+//   const constants = module.default;
 
   function geraBtnGeral(btnGeral) {
     btnGeral.forEach((item) => {
@@ -62,34 +63,101 @@ import("./constants.js").then((module) => {
     });
   }
 
+  function exibirMsg(origin){
+    const canvas = document.getElementById('msg')
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    document.getElementById("imgNuvem").src = "";
+
+    ctx.beginPath();
+    switch (origin) {
+      case "backgrounds":
+        document.getElementById("imgNuvem").src = "./assets/balao-3.png";
+        ctx.fillText('Bo escolher', 210,20);
+        ctx.fillText('o fundo', 210,30);
+        break;
+      case "ears":
+        document.getElementById("imgNuvem").src = "./assets/balao-3.png";
+        ctx.fillText('Ain,', 210,20);
+        ctx.fillText('minha orelha', 210,30);
+        break;
+      case "accessories":
+        document.getElementById("imgNuvem").src = "./assets/balao-3.png";
+        ctx.fillText('Psiu escolhe', 210,20);
+        ctx.fillText('uma parada', 210,30);
+        ctx.fillText('legal', 210,40);
+        break;
+      case "eyes":
+        document.getElementById("imgNuvem").src = "./assets/balao-3.png";
+        ctx.fillText('Cuidado com', 210,20);
+        ctx.fillText('meus olhos!!', 210,30);
+        break;
+      case "hair":
+        document.getElementById("imgNuvem").src = "./assets/balao-3.png";
+        ctx.fillText('Ei, escolhe', 210,20);
+        ctx.fillText('um cabelo', 210,30);
+        ctx.fillText('maneiro', 210,40);
+        break;
+      case "leg":
+        document.getElementById("imgNuvem").src = "./assets/balao-3.png"
+        ctx.fillText('Ain, cuidado,', 210,20);
+        ctx.fillText('minha perna', 210,30);
+        break;
+      case "mouth":
+        document.getElementById("imgNuvem").src = "./assets/balao-3.png";
+        ctx.fillText('=)', 220,20);
+        break;
+      case "neck":
+        document.getElementById("imgNuvem").src = "./assets/balao-3.png";
+        ctx.fillText('Ei ei ei...', 210,20);
+        break;
+      case "nose":
+        document.getElementById("imgNuvem").src = "./assets/balao-3.png";
+        ctx.fillText('Há!!!', 210,20);
+        ctx.fillText('só tem esse', 210,30);
+        break;
+      default:
+        break;
+    }    
+  }
+
   function exibiBtn(event) {
     switch (event.target.name) {
       case "backgrounds":
         geraBtn("backgrounds", constants.backgrounds);
+        exibirMsg("backgrounds");
         break;
       case "ears":
         geraBtn("ears", constants.earsItem);
+        exibirMsg("ears");
         break;
       case "eyes":
         geraBtn("eyes", constants.eyesItem);
+        exibirMsg("eyes");
         break;
       case "hair":
         geraBtn("hair", constants.hairItem);
+        exibirMsg("hair");
         break;
       case "leg":
         geraBtn("leg", constants.legItem);
+        exibirMsg("leg");
         break;
       case "mouth":
         geraBtn("mouth", constants.mouthItem);
+        exibirMsg("mouth");
         break;
       case "neck":
         geraBtn("neck", constants.neckItem);
+        exibirMsg("neck");
         break;
       case "nose":
         geraBtn("nose", constants.noseItem);
+        exibirMsg("nose");
         break;
       case "accessories":
         geraBtn("accessories", constants.accesItem);
+        exibirMsg("accessories");
         break;
       default:
         break;
@@ -97,23 +165,15 @@ import("./constants.js").then((module) => {
   }
 
   function draw() {
-    // let imgBack = new Image();
+  
     const imgBack = document.getElementById("imgBack");
-    // let imgEars = new Image();
     const imgEars = document.getElementById("imgEars");
-    // let imgNeck = new Image();
     const imgNeck = document.getElementById("imgNeck");
-    // let imgNose = new Image();
     const imgNose = document.getElementById("imgNose");
-    // let imgHair = new Image();
     const imgHair = document.getElementById("imgHair");
-    // let imgEyes = new Image();
     const imgEyes = document.getElementById("imgEyes");
-    // let imgMouth = new Image();
     const imgMouth = document.getElementById("imgMouth");
-    // let imgLeg = new Image();
     const imgLeg = document.getElementById("imgLeg");
-    // let imgAcces = new Image();
     const imgAcces = document.getElementById("imgAcces");
 
     const canvas = document.getElementById("canvas");
@@ -150,4 +210,12 @@ import("./constants.js").then((module) => {
 
   const salvar = document.getElementById(`btn-download`);
   salvar.addEventListener("click", salvaAvatar);
-});
+
+  function randomAvatar() {
+    alert('Em desenvolvimento =)')
+
+  }
+
+  const random = document.getElementById(`btn-random`);
+  random.addEventListener("click", randomAvatar);
+// });

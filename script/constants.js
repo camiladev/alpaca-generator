@@ -105,6 +105,10 @@ const accesItem = [
     name: "glasses",
     url: "./assets/accessories/glasses.png",
   },
+  {
+    name: "nothing",
+    url: "",
+  },
 ];
 
 const eyesItem = [

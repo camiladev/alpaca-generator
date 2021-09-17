@@ -16,6 +16,7 @@
     <main>
       <section class="left">
         <div id='avatar' class="img">
+          <canvas id="canvas" class="canvas"></canvas>
           <img id="imgBack" src="./assets/backgrounds/blue60.png" alt="backgrounds" />
           <img id="imgEars" src="./assets/ears/tilt-backward.png" alt="" />
           <img id="imgNeck" src="./assets/neck/bend-backward.png" alt="" />
@@ -25,11 +26,12 @@
           <img id="imgMouth" src="./assets/mouth/eating.png" alt="" />
           <img id="imgLeg" src="./assets/leg/game-console.png" alt="" />
           <img id="imgAcces" src="./assets/accessories/flower.png" alt="" />
-        </div>
-        <canvas id="canvas" class="canvas"></canvas>
-        <div id="imageDownload" class=""></div>
+          <img id="imgNuvem" src="" alt="">
+          <canvas id="msg" class="msg"></canvas>
+        </div>        
+        
         <div>
-          <button class="btn-random">Random</button>
+          <button id="btn-random" class="btn-random">Random</button>
           <button id="btn-download" class="btn-download">Download</button>
         </div>
       </section>
@@ -56,6 +58,6 @@
     </main>
 
     
-    <script src="./script/index.js"></script>
+    <script type="module" src="./script/index.js"></script>
   </body>
 </html>
